@@ -9,7 +9,6 @@ public class Main {
         if (s.equals(t)) {
             System.out.println("equal");
         }
-        
-       
+
     }
 }
