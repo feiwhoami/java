@@ -1,4 +1,4 @@
-package main;
+package src;
 
 public class TrigCircle {
     // Here are our static lookup tables and their own initializers

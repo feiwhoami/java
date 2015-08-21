@@ -1,4 +1,4 @@
-package main;
+package src;
 
 public class Circle {
     // A class field
