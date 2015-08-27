@@ -1,4 +1,4 @@
-package src;
+package src.learn;
 
 public class Point {
     private double x;
