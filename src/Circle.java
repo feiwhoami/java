@@ -8,7 +8,7 @@ public class Circle {
     public static double radiansToDegrees(double radians) {
         return radians * 180 / PI;
     }
-    
+
     public static double getPI() {
         return PI;
     }
