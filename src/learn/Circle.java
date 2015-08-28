@@ -15,6 +15,7 @@ public class Circle {
 
     // The constructor: initialize the radius field
     public Circle(double r) {
+        checkRadius(r);
         this.r = r;
     }
 
@@ -24,17 +25,18 @@ public class Circle {
     }
 
     // An instance field
-    public double r;
+    private double r;
 
     public void setRadius(double r) {
         // Assign the argument (r) to the field (this.r)
         // Note that we cannot just say r = r
+        checkRadius(r);
         this.r = r;
 
     }
 
     public double getRadius() {
-        return this.r;
+        return r;
     }
 
     public double area() {
@@ -45,6 +47,11 @@ public class Circle {
     public double circumference() {
         // Compute the circumference of the circle
         return 2 * PI * r;
+    }
+
+    private void checkRadius(double radius) {
+        if (radius < 0.0)
+            throw new IllegalArgumentException("radius may not be negative.");
     }
 
 }

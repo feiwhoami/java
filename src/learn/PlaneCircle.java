@@ -37,7 +37,7 @@ public class PlaneCircle extends Circle {
         double dx = x - p.getX();
         double dy = y - p.getY(); // Distance from center
         double distance = Math.sqrt(dx * dx + dy * dy); // Pythagorean theorem
-        return (distance < r); // Returns true or false
+        return (distance < this.getRadius()); // Returns true or false
     }
 
 }
