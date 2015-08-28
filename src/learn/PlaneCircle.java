@@ -4,7 +4,7 @@ public class PlaneCircle extends Circle {
     // We automatically inherit the fields and methods of Circle,
     // so we only have to put the new stuff here.
     // New instance fields that store the center point of the circle
-    private Point p;
+    private final Point p;
 
     // A new constructor to initialize the new fields
     // It uses a special syntax to invoke the Circle() constructor
@@ -15,6 +15,7 @@ public class PlaneCircle extends Circle {
 
     public PlaneCircle() {
         super();
+        p = new Point(0.0, 0.0);
     }
 
     public Point getCenterPoint() {
