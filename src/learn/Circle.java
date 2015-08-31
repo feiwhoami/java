@@ -1,6 +1,6 @@
 package learn;
 
-public class Circle {
+public class Circle extends Shape {
     // A class field
     private static final double PI = 3.14159;
 
@@ -50,8 +50,9 @@ public class Circle {
     }
 
     private void checkRadius(double radius) {
-        if (radius < 0.0)
+        if (radius < 0.0) {
             throw new IllegalArgumentException("radius may not be negative.");
+        }
     }
 
 }
