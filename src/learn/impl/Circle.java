@@ -1,5 +1,7 @@
 package learn.impl;
 
+import learn.util.ShapeUtil;
+
 public class Circle extends Shape {
     // A class field
     private static final double PI = 3.14159;
@@ -15,7 +17,7 @@ public class Circle extends Shape {
 
     // The constructor: initialize the radius field
     public Circle(double r) {
-        checkRadius(r);
+        ShapeUtil.notNegativeCheck(r);
         this.r = r;
     }
 
@@ -30,7 +32,7 @@ public class Circle extends Shape {
     public void setRadius(double r) {
         // Assign the argument (r) to the field (this.r)
         // Note that we cannot just say r = r
-        checkRadius(r);
+        ShapeUtil.notNegativeCheck(r);
         this.r = r;
 
     }
@@ -47,12 +49,6 @@ public class Circle extends Shape {
     public double circumference() {
         // Compute the circumference of the circle
         return 2 * PI * r;
-    }
-
-    private void checkRadius(double radius) {
-        if (radius < 0.0) {
-            throw new IllegalArgumentException("radius may not be negative.");
-        }
     }
 
 }

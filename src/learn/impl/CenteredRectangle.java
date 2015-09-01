@@ -1,6 +1,8 @@
 package learn.impl;
 
-public class CenteredRectangle extends Rectangele implements Centered {
+import learn.interfaces.Centered;
+
+public class CenteredRectangle extends Rectangle implements Centered {
 
     private double cx, cy;
 
@@ -15,11 +17,14 @@ public class CenteredRectangle extends Rectangele implements Centered {
         this.cy = y;
     }
 
+    @Override
     public double getCenterX() {
         return cx;
     }
 
-    //public double getCenterY() {
-     //   return cy;
-   // }
+    @Override
+    public double getCenterY() {
+        return cy;
+    }
+
 }

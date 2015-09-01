@@ -1,5 +1,7 @@
 package learn.impl;
 
+import learn.util.ShapeUtil;
+
 public class Rectangle extends Shape {
     private double w; // Instance data
     private double h;
@@ -19,12 +21,12 @@ public class Rectangle extends Shape {
     }
 
     public void setWidth(double w) {
-        checkWidthOrHeight(w);
+        ShapeUtil.notNegativeCheck(w);
         this.w = w;
     }
 
     public void setHeight(double h) {
-        checkWidthOrHeight(h);
+        ShapeUtil.notNegativeCheck(h);
         this.h = h;
     }
 
@@ -36,13 +38,6 @@ public class Rectangle extends Shape {
     public double circumference() {
         // Implementation of abstract methods
         return 2 * (w + h);
-    }
-
-    private void checkWidthOrHeight(double wh) {
-        if (wh < 0.0) {
-            throw new IllegalArgumentException(
-                    "Width or Height may not be negative.");
-        }
     }
 
 }

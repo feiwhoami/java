@@ -1,4 +1,4 @@
-package learn;
+package learn.interfaces;
 
 public interface Centered {
     void setCenter(double x, double y);
