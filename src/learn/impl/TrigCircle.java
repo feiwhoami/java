@@ -1,4 +1,4 @@
-package learn;
+package learn.impl;
 
 public class TrigCircle {
     // Here are our static lookup tables and their own initializers

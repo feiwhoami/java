@@ -1,4 +1,4 @@
-package learn;
+package learn.impl;
 
 public class Rectangle extends Shape {
     private double w; // Instance data

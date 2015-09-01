@@ -1,4 +1,4 @@
-package learn;
+package learn.impl;
 
 public class Point {
     private double x;
