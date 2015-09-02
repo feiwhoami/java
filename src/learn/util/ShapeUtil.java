@@ -2,10 +2,12 @@ package learn.util;
 
 public abstract class ShapeUtil {
 
-    public static void notNegativeCheck(double x) {
+    private static final String NOT_NEGATIVE_CHECK = "%s may not be negative";
+
+    public static void notNegativeCheck(double x, String s) {
         if (x < 0.0) {
-            throw new IllegalArgumentException(
-                    "The input value may not be negative.");
+            String message = String.format(NOT_NEGATIVE_CHECK, s);
+            throw new IllegalArgumentException(message);
         }
     }
 }

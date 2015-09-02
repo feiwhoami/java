@@ -17,7 +17,7 @@ public class Circle extends Shape {
 
     // The constructor: initialize the radius field
     public Circle(double r) {
-        ShapeUtil.notNegativeCheck(r);
+        ShapeUtil.notNegativeCheck(r, "Constructor: Radius");
         this.r = r;
     }
 
@@ -32,7 +32,7 @@ public class Circle extends Shape {
     public void setRadius(double r) {
         // Assign the argument (r) to the field (this.r)
         // Note that we cannot just say r = r
-        ShapeUtil.notNegativeCheck(r);
+        ShapeUtil.notNegativeCheck(r, "Radius");
         this.r = r;
 
     }
