@@ -26,7 +26,7 @@ public class LinkedStack {
 
     public void pop() {
         if (head == null) {
-            return; 
+            return;
         }
         head = head.getNext();
     }
