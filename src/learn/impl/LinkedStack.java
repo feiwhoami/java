@@ -37,35 +37,36 @@ public class LinkedStack {
 
     // This method returns an Iterator object for this LinkedStack
     public Iterator<Linkable> iterator() {
-        return new LinkedIterator();
-    }
+        // Here is the implementation of the Iterator interface,
+        // defined as a nonstatic member class.
+        class LinkedIterator implements Iterator<Linkable> {
+            Linkable current;
 
-    // Here is the implementation of the Iterator interface,
-    // defined as a nonstatic member class.
-    protected class LinkedIterator implements Iterator<Linkable> {
-        Linkable current;
-
-        // The constructor uses a private field of the containing class
-        public LinkedIterator() {
-            current = head;
-        }
-
-        // The following 3 methods are defined by the Iterator interface
-        public boolean hasNext() {
-            return current != null;
-        }
-
-        public Linkable next() {
-            if (current == null) {
-                throw new java.util.NoSuchElementException();
+            // The constructor uses a private field of the containing class
+            public LinkedIterator() {
+                current = head;
             }
-            Linkable value = current;
-            current = current.getNext();
-            return value;
+
+            // The following 3 methods are defined by the Iterator interface
+            public boolean hasNext() {
+                return current != null;
+            }
+
+            public Linkable next() {
+                if (current == null) {
+                    throw new java.util.NoSuchElementException();
+                }
+                Linkable value = current;
+                current = current.getNext();
+                return value;
+            }
+
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
         }
 
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
+        // Create and return an instance of the class we just defined
+        return new LinkedIterator();
     }
 }
