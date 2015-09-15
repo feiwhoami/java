@@ -12,6 +12,7 @@ public class CenteredRectangle extends Rectangle implements Centered {
         this.cy = cy;
     }
 
+    @Override
     public void setCenter(double x, double y) {
         this.cx = x;
         this.cy = y;
