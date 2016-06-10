@@ -20,7 +20,4 @@ public class Mongodb {
     public DB getDb() {
         return db;
     }
-    
-    
-    
 }
