@@ -19,4 +19,22 @@ public class LeetCode104MaximumDepthofBinaryTree {
 
     }
 
+    public int maxDepth2(TreeNode root) {
+
+        return maxDepthHelper(root, 0);
+
+    }
+
+    private int maxDepthHelper(TreeNode root, int currDepth) {
+
+        if (null == root) {
+            return currDepth;
+        }
+
+        int left = maxDepthHelper(root.left, currDepth);
+        int right = maxDepthHelper(root.right, currDepth);
+
+        return Math.max(left, right) + 1;
+    }
+
 }
