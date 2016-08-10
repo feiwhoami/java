@@ -14,7 +14,7 @@ package leetcode;
 
 import java.util.HashMap;
 
-public class LeetCode1TwoSum {
+public class LeetCode001TwoSum {
 
     public int[] twoSum(int[] nums, int target) {
 

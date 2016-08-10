@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class LeetCode96UniqueBinarySearchTrees {
+public class LeetCode096UniqueBinarySearchTrees {
 
     public int numTrees(int n) {
 

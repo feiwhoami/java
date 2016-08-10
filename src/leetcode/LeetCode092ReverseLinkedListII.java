@@ -14,7 +14,7 @@ package leetcode;
 
 import leetcode.util.ListNode;
 
-public class LeetCode92ReverseLinkedListII {
+public class LeetCode092ReverseLinkedListII {
 
     public ListNode reverseBetween(ListNode head, int m, int n) {
 

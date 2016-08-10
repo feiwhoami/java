@@ -8,7 +8,7 @@ package leetcode;
 
 import leetcode.util.ListNode;
 
-public class LeetCode2AddTwoNumbers {
+public class LeetCode002AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 

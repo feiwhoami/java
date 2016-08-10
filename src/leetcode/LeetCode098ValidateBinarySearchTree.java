@@ -21,7 +21,7 @@ package leetcode;
 
 import leetcode.util.TreeNode;
 
-public class LeetCode98ValidateBinarySearchTree {
+public class LeetCode098ValidateBinarySearchTree {
 
     public boolean isValidBST(TreeNode root) {
 
