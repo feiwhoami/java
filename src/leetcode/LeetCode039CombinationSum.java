@@ -43,22 +43,15 @@ public class LeetCode039CombinationSum {
             return;
         }
 
-        int prev = -1;
-
         for (int i = index; i < candidates.length; i++) {
             if (candidates[i] > target) {
                 break;
-            }
-
-            if (prev != -1 && prev == candidates[i]) {
-                continue;
             }
 
             curr.add(candidates[i]);
             combinationSumHelper(candidates, curr, i, target - candidates[i], result);
             curr.remove(curr.size() - 1);
 
-            prev = candidates[i];
         }
     }
 }
