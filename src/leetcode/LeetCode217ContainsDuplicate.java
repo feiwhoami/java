@@ -3,17 +3,17 @@
  */
 package leetcode;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class LeetCode217ContainsDuplicate {
 
     public boolean containsDuplicate(int[] nums) {
 
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> map = new HashSet<>();
 
         for (int i = 0; i < nums.length; i++) {
-            if (null == map.get(nums[i])) {
-                map.put(nums[i], 1);
+            if (!map.contains(nums[i])) {
+                map.add(nums[i]);
             } else {
                 return true;
             }
