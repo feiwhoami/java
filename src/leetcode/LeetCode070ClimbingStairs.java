@@ -5,7 +5,7 @@
  */
 package leetcode;
 
-public class LeetCode70ClimbingStairs {
+public class LeetCode070ClimbingStairs {
 
     public int climbStairs(int n) {
 
