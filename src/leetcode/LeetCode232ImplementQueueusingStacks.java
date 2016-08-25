@@ -46,17 +46,11 @@ public class LeetCode232ImplementQueueusingStacks {
         }
 
         return tail.peek();
-
     }
 
     // Return whether the queue is empty.
     public boolean empty() {
-
-        if (head.isEmpty() && tail.isEmpty()) {
-            return true;
-        } else {
-            return false;
-        }
+        return head.isEmpty() && tail.isEmpty();
     }
 
 }
