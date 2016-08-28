@@ -20,11 +20,7 @@ public class LeetCode067AddBinary {
         while (i >= 0 && j >= 0) {
             int sum = (a.charAt(i) - '0') + (b.charAt(j) - '0') + carryon;
             result = String.valueOf(sum % 2) + result;
-            if (sum >= 2) {
-                carryon = 1;
-            } else {
-                carryon = 0;
-            }
+            carryon = sum / 2;
             i--;
             j--;
         }
@@ -32,22 +28,14 @@ public class LeetCode067AddBinary {
         while (i >= 0) {
             int sum = (a.charAt(i) - '0') + carryon;
             result = String.valueOf(sum % 2) + result;
-            if (sum >= 2) {
-                carryon = 1;
-            } else {
-                carryon = 0;
-            }
+            carryon = sum / 2;
             i--;
         }
 
         while (j >= 0) {
             int sum = (b.charAt(j) - '0') + carryon;
             result = String.valueOf(sum % 2) + result;
-            if (sum >= 2) {
-                carryon = 1;
-            } else {
-                carryon = 0;
-            }
+            carryon = sum / 2;
             j--;
         }
 
