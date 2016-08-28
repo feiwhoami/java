@@ -13,7 +13,7 @@ package leetcode;
 
 import java.util.HashSet;
 
-public class LeetCode36ValidSudoku {
+public class LeetCode036ValidSudoku {
 
     public boolean isValidSudoku(char[][] board) {
 
