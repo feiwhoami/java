@@ -26,4 +26,18 @@ public class LeetCode206ReverseLinkedList {
         head.next = null;
         return first;
     }
+
+    public ListNode reverseList2(ListNode head) {
+
+        ListNode prev = null;
+
+        while (null != head) {
+            ListNode tmp = head.next;
+            head.next = prev;
+            prev = head;
+            head = tmp;
+        }
+
+        return prev;
+    }
 }
