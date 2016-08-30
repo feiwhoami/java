@@ -9,8 +9,9 @@ import leetcode.util.ListNode;
 
 public class LeetCode382LinkedListRandomNode {
 
-    ListNode head;
-    int length;
+    private ListNode head;
+    private int length;
+    private Random random;
 
     /**
      * @param head
@@ -20,6 +21,7 @@ public class LeetCode382LinkedListRandomNode {
     public LeetCode382LinkedListRandomNode(ListNode head) {
         this.head = head;
         this.length = 0;
+        this.random = new Random();
 
         ListNode curr = head;
         while (null != curr) {
@@ -42,7 +44,6 @@ public class LeetCode382LinkedListRandomNode {
 
         ListNode curr = head.next;
         while (null != curr) {
-            Random random = new Random();
             int t = random.nextInt(i);
             if (t == 0) {
                 result = curr.val;
@@ -59,7 +60,6 @@ public class LeetCode382LinkedListRandomNode {
      */
     public int getRandom2() {
 
-        Random random = new Random();
         int i = random.nextInt(length);
 
         ListNode result = head;
