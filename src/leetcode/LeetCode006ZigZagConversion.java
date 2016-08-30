@@ -16,7 +16,7 @@ public class LeetCode006ZigZagConversion {
 
     public String convert(String s, int numRows) {
 
-        if (null == s || 0 == s.length() || numRows < 0) {
+        if (null == s || s.isEmpty() || numRows < 0) {
             return "";
         }
 
@@ -38,7 +38,7 @@ public class LeetCode006ZigZagConversion {
                 }
             }
         }
-        
+
         return sb.toString();
     }
 }

@@ -21,14 +21,11 @@ public class LeetCode171ExcelSheetColumnNumber {
             return 0;
         }
 
-        char[] c = s.toCharArray();
-        int length = c.length;
-
         int result = 0;
 
-        for (int i = 0; i < length; i++) {
-            long digit = c[i] - '0' - 16;
-            int pow = length - i - 1;
+        for (int i = 0; i < s.length(); i++) {
+            int digit = Character.getNumericValue(s.charAt(i)) - 9;
+            int pow = s.length() - i - 1;
             result = (int) (result + digit * Math.pow(26, pow));
         }
 
