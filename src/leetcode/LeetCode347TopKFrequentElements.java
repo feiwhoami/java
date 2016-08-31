@@ -44,20 +44,14 @@ public class LeetCode347TopKFrequentElements {
             int index = entry.getValue() - 1;
             int element = entry.getKey();
 
-            if (null == bucket.get(index)) {
-                List<Integer> b = new ArrayList<>();
-                b.add(element);
-                bucket.add(index, b);
-            } else {
-                bucket.get(index).add(element);
-            }
+            bucket.get(index).add(element);
         }
 
         for (int i = nums.length - 1; i >= 0; i--) {
             List<Integer> b = bucket.get(i);
             int j = 0;
 
-            while (k > 0 && j < b.size()) {
+            while (k > 0 && null != b && j < b.size()) {
                 result.add(b.get(j));
                 k--;
                 j++;
