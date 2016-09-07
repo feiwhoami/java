@@ -5,7 +5,7 @@
  */
 package leetcode;
 
-public class LetCode011ContainerWithMostWater {
+public class LeetCode011ContainerWithMostWater {
 
     public int maxArea(int[] height) {
 
