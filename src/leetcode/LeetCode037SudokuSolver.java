@@ -20,13 +20,14 @@ public class LeetCode037SudokuSolver {
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
+
                 if (board[i][j] != '.') {
                     continue;
                 }
 
                 for (int k = 1; k <= 9; k++) {
-                    board[i][j] = (char) (k + '0');
 
+                    board[i][j] = (char) (k + '0');
                     if (isValid(board, i, j) && solve(board)) {
                         return true;
                     }
@@ -35,7 +36,6 @@ public class LeetCode037SudokuSolver {
                 return false;
             }
         }
-
         return true;
     }
 
