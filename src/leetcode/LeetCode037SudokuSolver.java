@@ -33,9 +33,11 @@ public class LeetCode037SudokuSolver {
                     }
                     board[i][j] = '.';
                 }
+
                 return false;
             }
         }
+
         return true;
     }
 
@@ -44,6 +46,7 @@ public class LeetCode037SudokuSolver {
         HashSet<Character> hash = new HashSet<>();
 
         for (int i = 0; i < 9; i++) {
+
             if ('.' == board[a][i]) {
                 continue;
             }
