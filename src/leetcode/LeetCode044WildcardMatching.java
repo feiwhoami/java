@@ -30,12 +30,20 @@ public class LeetCode044WildcardMatching {
         int mark = -1;
 
         while (i < s.length()) {
-            
+
             if (j < p.length() && compare(s.charAt(i), p.charAt(j))) {
                 i++;
                 j++;
-            } else (j < p.length() && p.charAt(j) == '*') {
-                
+            } else if (j < p.length() && p.charAt(j) == '*') {
+                star = j;
+                j++;
+                mark = i;
+            } else if (star != -1) {
+                j = star + 1;
+                i = mark;
+                mark++;
+            } else {
+                return false;
             }
         }
 
