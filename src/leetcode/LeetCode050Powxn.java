@@ -3,7 +3,7 @@
  */
 package leetcode;
 
-public class LeetCode50Powxn {
+public class LeetCode050Powxn {
 
     public double myPow(double x, int n) {
 
