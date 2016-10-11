@@ -14,6 +14,7 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 import leetcode.util.TreeNode;
 
@@ -38,5 +39,36 @@ public class LeetCode094BinaryTreeInorderTraversal {
         result.add(root.val);
         inorderTraversalHelper(root.right, result);
 
+    }
+
+    public List<Integer> inorderTraversal2(TreeNode root) {
+
+        List<Integer> result = new ArrayList<>();
+        if (null == root) {
+            return result;
+        }
+
+        TreeNode current = root;
+        Stack<TreeNode> stack = new Stack<>();
+        boolean done = false;
+
+        while (!done) {
+
+            if (current != null) {
+                stack.push(current);
+                current = current.left;
+            } else {
+                if (stack.isEmpty()) {
+                    done = true;
+                } else {
+                    current = stack.peek();
+                    stack.pop();
+                    result.add(current.val);
+                    current = current.right;
+                }
+            }
+        }
+
+        return result;
     }
 }
