@@ -28,7 +28,7 @@ public class LeetCode098ValidateBinarySearchTree {
         return isValidBSTHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    public boolean isValidBSTHelper(TreeNode root, Long min, Long max) {
+    private boolean isValidBSTHelper(TreeNode root, Long min, Long max) {
         if (null == root) {
             return true;
         }
