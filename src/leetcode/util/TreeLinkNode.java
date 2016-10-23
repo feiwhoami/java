@@ -13,7 +13,7 @@ public class TreeLinkNode {
 
     public TreeLinkNode next;
 
-    TreeLinkNode(int x) {
+    public TreeLinkNode(int x) {
         val = x;
     }
 }
