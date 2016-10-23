@@ -26,38 +26,30 @@ public class LeetCode118PascalsTriangle {
             return result;
         }
 
-        int[] first = new int[1];
-        first[0] = 1;
-        List<Integer> firstList = new ArrayList<>();
-        for (int i = 0; i < first.length; i++) {
-            firstList.add(first[i]);
-        }
-        result.add(firstList);
+        List<Integer> first = new ArrayList<>();
+        first.add(1);
+        result.add(first);
 
         generateHelper(numRows - 1, first, result);
         return result;
     }
 
-    private void generateHelper(int numRows, int[] pre, List<List<Integer>> result) {
+    private void generateHelper(int numRows, List<Integer> pre, List<List<Integer>> result) {
         if (numRows == 0) {
             return;
         }
 
-        int len = pre.length;
-        int[] curr = new int[len + 1];
-        curr[0] = 1;
-        curr[len] = 1;
+        int len = pre.size();
+        List<Integer> curr = new ArrayList<>();
+        curr.add(1);
 
         for (int i = 1; i < len; i++) {
-            curr[i] = pre[i] + pre[i - 1];
+            curr.add(pre.get(i) + pre.get(i - 1));
         }
 
-        List<Integer> currList = new ArrayList<>();
-        for (int i = 0; i < curr.length; i++) {
-            currList.add(curr[i]);
-        }
+        curr.add(1);
 
-        result.add(currList);
+        result.add(curr);
 
         generateHelper(numRows - 1, curr, result);
     }
