@@ -61,8 +61,7 @@ public class LeetCode094BinaryTreeInorderTraversal {
                 if (stack.isEmpty()) {
                     done = true;
                 } else {
-                    current = stack.peek();
-                    stack.pop();
+                    current = stack.pop();
                     result.add(current.val);
                     current = current.right;
                 }
