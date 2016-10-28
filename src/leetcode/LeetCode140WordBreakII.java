@@ -26,11 +26,11 @@ public class LeetCode140WordBreakII {
 
         String curr = new String();
         boolean[] dp = new boolean[s.length() + 1];
-        dp[0] = true;
+        dp[s.length()] = true;
 
-        for (int i = 1; i <= s.length(); i++) {
-            for (int j = 0; j < i; j++) {
-                if (dp[j] && wordDict.contains(s.substring(j, i))) {
+        for (int i = s.length(); i >= 0; i--) {
+            for (int j = i; j <= s.length(); j++) {
+                if (dp[j] && wordDict.contains(s.substring(i, j))) {
                     dp[i] = true;
                     break;
                 }
@@ -41,7 +41,8 @@ public class LeetCode140WordBreakII {
         return result;
     }
 
-    private void wordBreakHelper(String s, int index, String curr, Set<String> wordDict, List<String> result, boolean[] dp) {
+    private void wordBreakHelper(String s, int index, String curr, Set<String> wordDict, List<String> result,
+            boolean[] dp) {
 
         if (index == s.length()) {
             result.add(new String(curr.substring(1, curr.length())));
