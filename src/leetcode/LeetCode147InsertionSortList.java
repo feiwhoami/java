@@ -20,7 +20,7 @@ public class LeetCode147InsertionSortList {
         while (curr1 != null) {
             ListNode curr2 = dummy;
             ListNode newNode = new ListNode(curr1.val);
-            while (curr2 != null && curr2.next != null && curr2.next.val < curr1.val) {
+            while (curr2.next != null && curr2.next.val < curr1.val) {
                 curr2 = curr2.next;
             }
 
