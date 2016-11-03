@@ -21,12 +21,13 @@ import java.util.Stack;
 
 public class LeetCode155MinStack {
 
-    private Stack<Integer> fullStack = new Stack<>();
-    private Stack<Integer> minStack = new Stack<>();
+    private Stack<Integer> fullStack;
+    private Stack<Integer> minStack;
 
     /** initialize your data structure here. */
     public LeetCode155MinStack() {
-
+        fullStack = new Stack<>();
+        minStack = new Stack<>();
     }
 
     public void push(int x) {
