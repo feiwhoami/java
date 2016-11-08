@@ -33,12 +33,12 @@ public class LeetCode166FractiontoRecurringDecimal {
         positive = (numeratorLong > 0 && denominatorLong > 0) || (numeratorLong < 0 && denominatorLong < 0);
         if (!positive) {
             result = result.append('-');
-            if (numeratorLong < 0) {
-                numeratorLong = numeratorLong * -1;
-            }
-            if (denominatorLong < 0) {
-                denominatorLong = denominatorLong * -1;
-            }
+        }
+        if (numeratorLong < 0) {
+            numeratorLong = numeratorLong * -1;
+        }
+        if (denominatorLong < 0) {
+            denominatorLong = denominatorLong * -1;
         }
 
         result = result.append(numeratorLong / denominatorLong);
