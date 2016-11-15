@@ -23,14 +23,6 @@ public class LeetCode188BestTimetoBuyandSellStockIV {
         int[][] local = new int[len + 1][k + 1];
         int[][] global = new int[len + 1][k + 1];
 
-        local[0][0] = 0;
-        global[0][0] = 0;
-
-        for (int i = 0; i <= k; i++) {
-            local[0][i] = 0;
-            global[0][i] = 0;
-        }
-
         for (int i = 1; i < len; i++) {
             int diff = prices[i] - prices[i - 1];
             for (int j = 1; j <= k; j++) {
