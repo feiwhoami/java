@@ -1,1 +1,2 @@
 # code
+This is LeetCode
