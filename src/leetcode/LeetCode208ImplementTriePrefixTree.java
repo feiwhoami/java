@@ -13,7 +13,7 @@ public class LeetCode208ImplementTriePrefixTree {
     private TrieNode root;
 
     public LeetCode208ImplementTriePrefixTree() {
-        root = new TrieNode();
+        this.root = new TrieNode();
     }
 
     // Inserts a word into the trie.
