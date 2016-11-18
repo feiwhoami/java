@@ -1,2 +1,0 @@
-# code
-This is LeetCode
