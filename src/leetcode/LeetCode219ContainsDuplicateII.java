@@ -19,7 +19,7 @@ public class LeetCode219ContainsDuplicateII {
             hash.add(nums[i]);
         }
 
-        if (i == nums.length - 1) {
+        if (i == nums.length) {
             return false;
         }
 
