@@ -22,7 +22,7 @@ public class LeetCode224BasicCalculator {
         char[] c = s.toCharArray();
         Stack<Integer> number = new Stack<>();
 
-        int res = 0;
+        int result = 0;
         int sign = 1;
 
         for (int i = 0; i < c.length; i++) {
@@ -33,22 +33,22 @@ public class LeetCode224BasicCalculator {
                     i++;
                 }
                 i--;
-                res = res + curr * sign;
+                result = result + curr * sign;
             } else if (c[i] == '+') {
                 sign = 1;
             } else if (c[i] == '-') {
                 sign = -1;
             } else if (c[i] == '(') {
-                number.push(res);
+                number.push(result);
                 number.push(sign);
-                res = 0;
+                result = 0;
                 sign = 1;
             } else if (c[i] == ')') {
-                res = res * number.pop() + number.pop();
+                result = result * number.pop() + number.pop();
                 sign = 1;
             }
         }
 
-        return res;
+        return result;
     }
 }
