@@ -24,6 +24,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class LeetCode295FindMedianfromDataStream {
+
     PriorityQueue<Integer> min;
     PriorityQueue<Integer> max;
 
@@ -43,7 +44,7 @@ public class LeetCode295FindMedianfromDataStream {
 
     public double findMedian() {
         if (max.size() == min.size()) {
-            return (double)(max.peek() + min.peek()) / 2;
+            return (double) (max.peek() + min.peek()) / 2;
         } else {
             return max.peek();
         }
