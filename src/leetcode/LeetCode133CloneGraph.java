@@ -26,7 +26,6 @@ package leetcode;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
@@ -35,26 +34,21 @@ import leetcode.util.UndirectedGraphNode;
 public class LeetCode133CloneGraph {
 
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
-
         if (null == node) {
             return null;
         }
-
+        
         Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
         Queue<UndirectedGraphNode> queue = new LinkedList<>();
-
         UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
         map.put(node, newNode);
         queue.add(node);
-
-        while (!queue.isEmpty()) {
+        
+        while(!queue.isEmpty()) {
             UndirectedGraphNode currNode = queue.poll();
             UndirectedGraphNode currCopy = map.get(currNode);
-            List<UndirectedGraphNode> currNeighbors = currNode.neighbors;
-
-            for (int i = 0; i < currNeighbors.size(); i++) {
-                UndirectedGraphNode neighbor = currNeighbors.get(i);
-
+            
+            for (UndirectedGraphNode neighbor : currNode.neighbors) {
                 if (map.containsKey(neighbor)) {
                     currCopy.neighbors.add(map.get(neighbor));
                 } else {
