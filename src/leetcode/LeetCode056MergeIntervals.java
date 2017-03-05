@@ -16,7 +16,6 @@ import leetcode.util.Interval;
 public class LeetCode056MergeIntervals {
 
     public List<Interval> merge(List<Interval> intervals) {
-
         List<Interval> result = new ArrayList<>();
         if (null == intervals || intervals.isEmpty()) {
             return result;
@@ -34,20 +33,18 @@ public class LeetCode056MergeIntervals {
         Arrays.sort(left);
         Arrays.sort(right);
 
-        int indexLeft = 0;
-        int indexRight = 0;
-        while (indexLeft < n && indexRight < n) {
-            Interval i = new Interval();
-
-            i.start = left[indexLeft++];
-            while (indexLeft < n && indexRight < n && left[indexLeft] <= right[indexRight]) {
-                indexLeft++;
-                indexRight++;
+        int i = 0;
+        int j = 0;
+        while (i < n && j < n) {
+            Interval newInterval = new Interval();
+            newInterval.start = left[i++];
+            while (i < n && j < n && left[i] <= right[j]) {
+                i++;
+                j++;
             }
-            i.end = right[indexRight++];
-            result.add(i);
+            newInterval.end = right[j++];
+            result.add(newInterval);
         }
-
         return result;
     }
 }
