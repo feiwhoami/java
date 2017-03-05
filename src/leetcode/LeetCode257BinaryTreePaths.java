@@ -21,6 +21,9 @@ import leetcode.util.TreeNode;
 
 public class LeetCode257BinaryTreePaths {
 
+    /**
+     * Solution 1
+     */
     public List<String> binaryTreePaths(TreeNode root) {
 
         List<String> result = new ArrayList<>();
@@ -60,4 +63,34 @@ public class LeetCode257BinaryTreePaths {
 
         return;
     }
+
+    /**
+     * Solution 2
+     */
+    public List<String> binaryTreePaths2(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (null == root) {
+            return result;
+        }
+
+        binaryTreePathsHelper2(root, "", result);
+        return result;
+    }
+
+    private void binaryTreePathsHelper2(TreeNode currNode, String currPath, List<String> result) {
+        if (null == currNode) {
+            return;
+        }
+
+        if (null == currNode.left && null == currNode.right) {
+            String newPath = currPath + currNode.val;
+            result.add(newPath);
+            return;
+        }
+
+        String newPath = currPath + currNode.val + "->";
+        binaryTreePathsHelper2(currNode.left, newPath, result);
+        binaryTreePathsHelper2(currNode.right, newPath, result);
+    }
+
 }
