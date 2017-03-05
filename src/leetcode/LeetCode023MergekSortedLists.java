@@ -3,10 +3,16 @@
  */
 package leetcode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 import leetcode.util.ListNode;
 
 public class LeetCode023MergekSortedLists {
 
+    /**
+     * Solution 1
+     */
     public ListNode mergeKLists(ListNode[] lists) {
 
         if (0 == lists.length) {
@@ -56,4 +62,40 @@ public class LeetCode023MergekSortedLists {
         return dummy.next;
     }
 
+    /**
+     * Solution 2
+     */
+    public ListNode mergeKLists2(ListNode[] lists) {
+
+        if (null == lists || lists.length == 0) {
+            return null;
+        }
+
+        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode l1, ListNode l2) {
+                return l1.val - l2.val;
+            }
+        });
+
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+
+        for (int i = 0; i < lists.length; i++) {
+            if (lists[i] != null) {
+                queue.add(lists[i]);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            curr.next = queue.poll();
+            curr = curr.next;
+
+            if (curr.next != null) {
+                queue.add(curr.next);
+            }
+        }
+
+        return dummy.next;
+    }
 }
