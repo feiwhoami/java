@@ -92,25 +92,20 @@ public class LeetCode140WordBreakII {
             return result;
         }
 
-        wordBreakHelper2(s, wordDict, "", 0, dp, result);
+        wordBreakHelper2(s, wordDict, "", 0, result);
         return result;
     }
 
-    private void wordBreakHelper2(String s, List<String> wordDict, String curr, int index, boolean[] dp,
-            List<String> result) {
+    private void wordBreakHelper2(String s, List<String> wordDict, String curr, int index, List<String> result) {
         if (index == s.length()) {
             result.add(new String(curr.substring(1)));
-            return;
-        }
-
-        if (!dp[index]) {
             return;
         }
 
         for (String word : wordDict) {
             if (index + word.length() <= s.length() && word.equals(s.substring(index, index + word.length()))) {
                 String next = curr + " " + word;
-                wordBreakHelper2(s, wordDict, next, index + word.length(), dp, result);
+                wordBreakHelper2(s, wordDict, next, index + word.length(), result);
             }
         }
     }
