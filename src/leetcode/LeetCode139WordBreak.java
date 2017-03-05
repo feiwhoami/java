@@ -18,7 +18,7 @@ public class LeetCode139WordBreak {
             return false;
         }
 
-        boolean dp[] = new boolean[s.length() + 1];
+        boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
 
         for (int i = 1; i <= s.length(); i++) {
