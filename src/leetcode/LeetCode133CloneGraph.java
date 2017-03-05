@@ -37,17 +37,17 @@ public class LeetCode133CloneGraph {
         if (null == node) {
             return null;
         }
-        
+
         Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
         Queue<UndirectedGraphNode> queue = new LinkedList<>();
         UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
         map.put(node, newNode);
         queue.add(node);
-        
-        while(!queue.isEmpty()) {
+
+        while (!queue.isEmpty()) {
             UndirectedGraphNode currNode = queue.poll();
             UndirectedGraphNode currCopy = map.get(currNode);
-            
+
             for (UndirectedGraphNode neighbor : currNode.neighbors) {
                 if (map.containsKey(neighbor)) {
                     currCopy.neighbors.add(map.get(neighbor));
