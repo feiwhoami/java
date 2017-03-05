@@ -17,6 +17,9 @@ import java.util.Set;
 
 public class LeetCode140WordBreakII {
 
+    /**
+     * Solution 1
+     */
     public List<String> wordBreak(String s, Set<String> wordDict) {
 
         List<String> result = new ArrayList<>();
@@ -60,6 +63,54 @@ public class LeetCode140WordBreakII {
                 String tmp = new String(curr);
                 tmp = tmp + " " + wordArray[i];
                 wordBreakHelper(s, index + len, tmp, wordDict, result, dp);
+            }
+        }
+    }
+
+    /**
+     * Solution 2
+     */
+
+    public List<String> wordBreak2(String s, List<String> wordDict) {
+        List<String> result = new ArrayList<>();
+        if (null == s || s.isEmpty() || null == wordDict || wordDict.isEmpty()) {
+            return result;
+        }
+
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] && wordDict.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        if (!dp[s.length()]) {
+            return result;
+        }
+
+        wordBreakHelper2(s, wordDict, "", 0, dp, result);
+        return result;
+    }
+
+    private void wordBreakHelper2(String s, List<String> wordDict, String curr, int index, boolean[] dp,
+            List<String> result) {
+        if (index == s.length()) {
+            result.add(new String(curr.substring(1)));
+            return;
+        }
+
+        if (!dp[index]) {
+            return;
+        }
+
+        for (String word : wordDict) {
+            if (index + word.length() <= s.length() && word.equals(s.substring(index, index + word.length()))) {
+                String next = curr + " " + word;
+                wordBreakHelper2(s, wordDict, next, index + word.length(), dp, result);
             }
         }
     }
