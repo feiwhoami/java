@@ -14,29 +14,31 @@
 package leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class LeetCode076MinimumWindowSubstring {
 
     public String minWindow(String s, String t) {
-
-        HashMap<Character, Integer> hasFound = new HashMap<>();
-        HashMap<Character, Integer> needToFind = new HashMap<>();
+        Map<Character, Integer> hasFound = new HashMap<>();
+        Map<Character, Integer> needToFind = new HashMap<>();
 
         for (int i = 0; i < t.length(); i++) {
-            if (!needToFind.containsKey(t.charAt(i))) {
-                needToFind.put(t.charAt(i), 1);
+            char c = t.charAt(i);
+            if (needToFind.containsKey(c)) {
+                needToFind.put(c, needToFind.get(c) + 1);
             } else {
-                needToFind.put(t.charAt(i), needToFind.get(t.charAt(i)) + 1);
+                needToFind.put(c, 1);
             }
         }
 
-        int start = 0, end = 0;
-        int minStart = 0, minEnd = s.length() - 1;
+        int start = 0;
+        int end = 0;
         int minLen = Integer.MAX_VALUE;
+        int minStart = 0;
+        int minEnd = s.length() - 1;
         int count = 0;
 
         while (end < s.length()) {
-
             if (!needToFind.containsKey(s.charAt(end))) {
                 end++;
                 continue;
@@ -53,23 +55,19 @@ public class LeetCode076MinimumWindowSubstring {
             }
 
             if (count == t.length()) {
-
                 while (!needToFind.containsKey(s.charAt(start))
                         || hasFound.get(s.charAt(start)) > needToFind.get(s.charAt(start))) {
-                    if (needToFind.containsKey(s.charAt(start))
-                            && hasFound.get(s.charAt(start)) > needToFind.get(s.charAt(start))) {
+                    if (hasFound.containsKey(s.charAt(start))) {
                         hasFound.put(s.charAt(start), hasFound.get(s.charAt(start)) - 1);
                     }
                     start++;
                 }
-
                 if (end - start + 1 < minLen) {
                     minLen = end - start + 1;
                     minStart = start;
                     minEnd = end;
                 }
             }
-
             end++;
         }
 
