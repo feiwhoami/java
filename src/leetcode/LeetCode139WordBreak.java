@@ -9,17 +9,16 @@
  */
 package leetcode;
 
-import java.util.Set;
+import java.util.List;
 
 public class LeetCode139WordBreak {
 
-    public boolean wordBreak(String s, Set<String> wordDict) {
-
+    public boolean wordBreak(String s, List<String> wordDict) {
         if (null == s || s.isEmpty()) {
             return false;
         }
 
-        boolean[] dp = new boolean[s.length() + 1];
+        boolean dp[] = new boolean[s.length() + 1];
         dp[0] = true;
 
         for (int i = 1; i <= s.length(); i++) {
