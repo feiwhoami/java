@@ -24,9 +24,9 @@ import java.util.List;
 public class LeetCode040CombinationSumII {
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-
+        
         Arrays.sort(candidates);
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> curr = new ArrayList<>();
         combinationSum2Helper(candidates, target, 0, curr, result);
 
