@@ -29,11 +29,13 @@ public class LeetCode040CombinationSumII {
         Arrays.sort(candidates);
         List<Integer> curr = new ArrayList<>();
         combinationSum2Helper(candidates, target, 0, curr, result);
+
         return result;
     }
 
     private void combinationSum2Helper(int[] candidates, int target, int index, List<Integer> curr,
             List<List<Integer>> result) {
+
         if (target == 0) {
             result.add(new ArrayList<>(curr));
             return;
