@@ -25,11 +25,8 @@ public class LeetCode039CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
 
         Arrays.sort(candidates);
-
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-
         List<Integer> curr = new ArrayList<>();
-
         combinationSumHelper(candidates, curr, 0, target, result);
 
         return result;
@@ -44,14 +41,11 @@ public class LeetCode039CombinationSum {
         }
 
         for (int i = index; i < candidates.length; i++) {
-            if (candidates[i] > target) {
-                break;
+            if (candidates[i] <= target) {
+                curr.add(candidates[i]);
+                combinationSumHelper(candidates, curr, i, target - candidates[i], result);
+                curr.remove(curr.size() - 1);
             }
-
-            curr.add(candidates[i]);
-            combinationSumHelper(candidates, curr, i, target - candidates[i], result);
-            curr.remove(curr.size() - 1);
-
         }
     }
 }
