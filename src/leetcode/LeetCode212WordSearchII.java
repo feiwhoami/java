@@ -19,19 +19,16 @@
 package leetcode;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import leetcode.util.TrieNode;
 
 public class LeetCode212WordSearchII {
 
-    private Set<String> set = new HashSet<>();
+    private List<String> result = new ArrayList<>();
     private TrieNode root = new TrieNode();
 
     public List<String> findWords(char[][] board, String[] words) {
-
         for (int i = 0; i < words.length; i++) {
             root.insert(words[i], 0);
         }
@@ -39,15 +36,13 @@ public class LeetCode212WordSearchII {
         boolean[][] visited = new boolean[board.length][board[0].length];
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                findWordsHelper(board, visited, i, j, "", root);
+                findWordsHelper(board, visited, i, j, "");
             }
         }
-
-        return new ArrayList<String>(set);
+        return result;
     }
 
-    public void findWordsHelper(char[][] board, boolean[][] visited, int i, int j, String curr, TrieNode root) {
-
+    public void findWordsHelper(char[][] board, boolean[][] visited, int i, int j, String curr) {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j]) {
             return;
         }
@@ -57,15 +52,15 @@ public class LeetCode212WordSearchII {
             return;
         }
 
-        if (root.find(curr, 0).isEnd) {
-            set.add(curr);
+        if (root.find(curr, 0).isEnd && !result.contains(curr)) {
+            result.add(curr);
         }
 
         visited[i][j] = true;
-        findWordsHelper(board, visited, i - 1, j, curr, root);
-        findWordsHelper(board, visited, i + 1, j, curr, root);
-        findWordsHelper(board, visited, i, j - 1, curr, root);
-        findWordsHelper(board, visited, i, j + 1, curr, root);
+        findWordsHelper(board, visited, i - 1, j, curr);
+        findWordsHelper(board, visited, i + 1, j, curr);
+        findWordsHelper(board, visited, i, j - 1, curr);
+        findWordsHelper(board, visited, i, j + 1, curr);
         visited[i][j] = false;
     }
 }
