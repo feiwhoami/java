@@ -85,14 +85,12 @@ public class LeetCode385MiniParser {
         if (null == s || s.isEmpty()) {
             return new NestedInteger();
         }
-
         if (s.charAt(0) != '[') {
             return new NestedInteger(Integer.valueOf(s));
         }
 
         Stack<NestedInteger> stack = new Stack<>();
         NestedInteger curr = null;
-
         int l = 0;
 
         for (int r = 0; r < s.length(); r++) {
@@ -108,22 +106,23 @@ public class LeetCode385MiniParser {
                     curr.add(new NestedInteger(Integer.valueOf(num)));
                 }
                 if (!stack.isEmpty()) {
-                    NestedInteger pop = stack.pop();
-                    pop.add(curr);
-                    curr = pop;
+                    NestedInteger tmp = stack.pop();
+                    tmp.add(curr);
+                    curr = tmp;
                 }
                 l = r + 1;
             } else if (r > 0 && s.charAt(r) == ',') {
                 if (s.charAt(r - 1) != ']') {
                     String num = s.substring(l, r);
-                    curr.add(new NestedInteger(Integer.valueOf(num)));
+                    if (!num.isEmpty()) {
+                        curr.add(new NestedInteger(Integer.valueOf(num)));
+                    }
                     l = r + 1;
                 } else {
                     l++;
                 }
             }
         }
-
         return curr;
     }
 }
