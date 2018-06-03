@@ -1,22 +1,20 @@
 /**
  * Given a collection of intervals, merge all overlapping intervals.
- * 
+ * <p>
  * For example,
  * Given [1,3],[2,6],[8,10],[15,18],
  * return [1,6],[8,10],[15,18].
  */
 package leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import leetcode.util.Interval;
+
+import java.util.*;
 
 public class LeetCode056MergeIntervals {
 
-    public List<Interval> merge(List<Interval> intervals) {
-        List<Interval> result = new ArrayList<>();
+    public List <Interval> merge(List <Interval> intervals) {
+        List <Interval> result = new ArrayList <>();
         if (null == intervals || intervals.isEmpty()) {
             return result;
         }
@@ -45,6 +43,33 @@ public class LeetCode056MergeIntervals {
             newInterval.end = right[j++];
             result.add(newInterval);
         }
+        return result;
+    }
+
+    public List <Interval> merge2(List <Interval> intervals) {
+        List <Interval> result = new ArrayList <>();
+        if (intervals == null || intervals.size() == 0) {
+            return result;
+        }
+
+        Collections.sort(intervals, new Comparator <Interval>() {
+            @Override
+            public int compare(Interval i1, Interval i2) {
+                return i1.start - i2.start;
+            }
+        });
+
+        Interval pre = intervals.get(0);
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval curr = intervals.get(i);
+            if (pre.end < curr.start) {
+                result.add(pre);
+                pre = curr;
+            } else {
+                pre.end = Math.max(pre.end, curr.end);
+            }
+        }
+        result.add(pre);
         return result;
     }
 }
