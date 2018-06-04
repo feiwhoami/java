@@ -3,10 +3,10 @@
  */
 package leetcode;
 
+import leetcode.util.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
-import leetcode.util.ListNode;
 
 public class LeetCode023MergekSortedLists {
 
