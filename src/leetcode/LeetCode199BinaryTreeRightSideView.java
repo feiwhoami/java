@@ -12,19 +12,19 @@
  */
 package leetcode;
 
+import leetcode.util.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-import leetcode.util.TreeNode;
 
 public class LeetCode199BinaryTreeRightSideView {
 
     public List<Integer> rightSideView(TreeNode root) {
 
         List<Integer> result = new ArrayList<>();
-        if (null == root) {
+        if (root == null) {
             return result;
         }
         Queue<TreeNode> currLevel = new LinkedList<>();
@@ -36,29 +36,23 @@ public class LeetCode199BinaryTreeRightSideView {
     }
 
     private void rightSideViewHelper(List<Integer> result, Queue<TreeNode> currLevel) {
-        if (null == currLevel || currLevel.size() == 0) {
+        if (currLevel == null || currLevel.size() == 0) {
             return;
         }
 
         Queue<TreeNode> nextLevel = new LinkedList<>();
 
-        while (currLevel.size() != 1) {
+        while (!currLevel.isEmpty()) {
             TreeNode node = currLevel.poll();
+            if (currLevel.isEmpty()) {
+                result.add(node.val);
+            }
             if (node.left != null) {
                 nextLevel.add(node.left);
             }
             if (node.right != null) {
                 nextLevel.add(node.right);
             }
-        }
-
-        TreeNode last = currLevel.poll();
-        result.add(last.val);
-        if (last.left != null) {
-            nextLevel.add(last.left);
-        }
-        if (last.right != null) {
-            nextLevel.add(last.right);
         }
 
         rightSideViewHelper(result, nextLevel);
