@@ -1,69 +1,63 @@
 /**
  * Given a binary tree, return the inorder traversal of its nodes' values.
- * 
+ * <p>
  * For example:
  * Given binary tree [1,null,2,3],
- *    1
- *     \
- *      2
- *     /
- *    3
+ * 1
+ *  \
+ *   2
+ *  /
+ * 3
  * return [1,3,2].
  */
 package leetcode;
+
+import leetcode.util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import leetcode.util.TreeNode;
-
 public class LeetCode094BinaryTreeInorderTraversal {
 
     public List<Integer> inorderTraversal(TreeNode root) {
-
         List<Integer> result = new ArrayList<>();
-        inorderTraversalHelper(root, result);
+        helper(root, result);
 
         return result;
-
     }
 
-    private void inorderTraversalHelper(TreeNode root, List<Integer> result) {
-
-        if (null == root) {
+    private void helper(TreeNode root, List<Integer> result) {
+        if (root == null) {
             return;
         }
 
-        inorderTraversalHelper(root.left, result);
+        helper(root.left, result);
         result.add(root.val);
-        inorderTraversalHelper(root.right, result);
-
+        helper(root.right, result);
     }
 
     public List<Integer> inorderTraversal2(TreeNode root) {
-
         List<Integer> result = new ArrayList<>();
-        if (null == root) {
+        if (root == null) {
             return result;
         }
 
-        TreeNode current = root;
+        TreeNode curr = root;
         Stack<TreeNode> stack = new Stack<>();
         boolean done = false;
 
         while (!done) {
-
-            if (current != null) {
-                stack.push(current);
-                current = current.left;
+            if (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
             } else {
                 if (stack.isEmpty()) {
                     done = true;
                 } else {
-                    current = stack.pop();
-                    result.add(current.val);
-                    current = current.right;
+                    curr = stack.pop();
+                    result.add(curr.val);
+                    curr = curr.left;
                 }
             }
         }
