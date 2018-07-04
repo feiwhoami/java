@@ -1,6 +1,6 @@
 /**
  * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
- * 
+ *
  * For example:
  * Given the below binary tree and sum = 22,
  *               5
@@ -19,15 +19,15 @@ import leetcode.util.TreeNode;
 public class LeetCode112PathSum {
 
     public boolean hasPathSum(TreeNode root, int sum) {
-
-        if (null == root) {
+        if (root == null) {
             return false;
         }
 
-        if (root.val == sum && null == root.left && null == root.right) {
+        if (root.val == sum && root.left == null && root.right == null) {
             return true;
         }
 
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root
+                .right, sum - root.val);
     }
 }
