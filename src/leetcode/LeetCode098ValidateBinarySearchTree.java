@@ -25,21 +25,18 @@ public class LeetCode098ValidateBinarySearchTree {
 
     public boolean isValidBST(TreeNode root) {
 
-        return isValidBSTHelper(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return helper(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean isValidBSTHelper(TreeNode root, Long min, Long max) {
-        if (null == root) {
+    private boolean helper(TreeNode root, Long min, Long max) {
+        if (root == null) {
             return true;
         }
 
-        if (root.val <= min || root.val >= max) {
+        if (root.val < min || root.val > max) {
             return false;
         }
 
-        return isValidBSTHelper(root.left, min, Long.valueOf(root.val))
-                && isValidBSTHelper(root.right, Long.valueOf(root.val), max);
-
+        return helper(root.left, min, Long.valueOf(root.val)) && helper(root.right, Long.valueOf(root.val), max);
     }
-
 }
