@@ -18,22 +18,19 @@ public class LeetCode099RecoverBinarySearchTree {
     private TreeNode lastElement = new TreeNode(Integer.MIN_VALUE);
 
     public void recoverTree(TreeNode root) {
-
-        inorderTraverse(root);
+        inorder(root);
 
         int tmp = first.val;
         first.val = second.val;
         second.val = tmp;
     }
 
-    private void inorderTraverse(TreeNode root) {
-
-        if (null == root) {
+    private void inorder(TreeNode root) {
+        if (root == null) {
             return;
         }
 
-        inorderTraverse(root.left);
-
+        inorder(root.left);
         if (first == null && root.val < lastElement.val) {
             first = lastElement;
         }
@@ -41,7 +38,6 @@ public class LeetCode099RecoverBinarySearchTree {
             second = root;
         }
         lastElement = root;
-
-        inorderTraverse(root.right);
+        inorder(root.right);
     }
 }
