@@ -37,7 +37,6 @@ public class LeetCode017LetterCombinationsofaPhoneNumber {
     }
 
     private void letterCombinationsHelper(String digits, int index, String curr, List<String> result) {
-
         if (index > digits.length()) {
             return;
         }
