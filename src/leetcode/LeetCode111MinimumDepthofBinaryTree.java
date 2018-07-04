@@ -10,6 +10,7 @@ package leetcode;
 import leetcode.util.TreeNode;
 
 public class LeetCode111MinimumDepthofBinaryTree {
+
     public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
