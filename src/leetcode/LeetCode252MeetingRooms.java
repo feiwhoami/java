@@ -4,16 +4,15 @@
  */
 package leetcode;
 
+import leetcode.util.Interval;
+
 import java.util.Arrays;
 import java.util.Comparator;
-
-import leetcode.util.Interval;
 
 public class LeetCode252MeetingRooms {
 
     public boolean canAttendMeetings(Interval[] intervals) {
-
-        if (null == intervals || intervals.length == 0) {
+        if (intervals == null || intervals.length == 0) {
             return true;
         }
 
