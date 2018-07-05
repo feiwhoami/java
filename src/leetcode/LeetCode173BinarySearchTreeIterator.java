@@ -7,9 +7,9 @@
  */
 package leetcode;
 
-import java.util.Stack;
-
 import leetcode.util.TreeNode;
+
+import java.util.Stack;
 
 public class LeetCode173BinarySearchTreeIterator {
 
@@ -23,7 +23,6 @@ public class LeetCode173BinarySearchTreeIterator {
             stack.push(curr);
             curr = curr.left;
         }
-
     }
 
     /** @return whether we have a next smallest number */
@@ -36,7 +35,6 @@ public class LeetCode173BinarySearchTreeIterator {
 
     /** @return the next smallest number */
     public int next() {
-
         curr = stack.pop();
         int val = curr.val;
 
