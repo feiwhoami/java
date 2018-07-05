@@ -14,8 +14,7 @@ public class LeetCode023MergekSortedLists {
      * Solution 1
      */
     public ListNode mergeKLists(ListNode[] lists) {
-
-        if (0 == lists.length) {
+        if (lists.length == 0) {
             return null;
         }
 
@@ -23,7 +22,6 @@ public class LeetCode023MergekSortedLists {
     }
 
     private ListNode mergeKListsHelper(ListNode[] lists, int start, int end) {
-
         if (start == end) {
             return lists[start];
         }
@@ -36,9 +34,7 @@ public class LeetCode023MergekSortedLists {
     }
 
     private ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-
         ListNode dummy = new ListNode(0);
-
         ListNode curr = dummy;
 
         while (null != l1 && null != l2) {
@@ -66,12 +62,12 @@ public class LeetCode023MergekSortedLists {
      * Solution 2
      */
     public ListNode mergeKLists2(ListNode[] lists) {
-
-        if (null == lists || lists.length == 0) {
+        if (lists == null || lists.length == 0) {
             return null;
         }
 
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>() {
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, new
+                Comparator<ListNode>() {
             @Override
             public int compare(ListNode l1, ListNode l2) {
                 return l1.val - l2.val;
@@ -81,9 +77,9 @@ public class LeetCode023MergekSortedLists {
         ListNode dummy = new ListNode(0);
         ListNode curr = dummy;
 
-        for (int i = 0; i < lists.length; i++) {
-            if (lists[i] != null) {
-                queue.add(lists[i]);
+        for (ListNode l : lists) {
+            if (l != null) {
+                queue.offer(l);
             }
         }
 
@@ -92,7 +88,7 @@ public class LeetCode023MergekSortedLists {
             curr = curr.next;
 
             if (curr.next != null) {
-                queue.add(curr.next);
+                queue.offer(curr.next);
             }
         }
 
