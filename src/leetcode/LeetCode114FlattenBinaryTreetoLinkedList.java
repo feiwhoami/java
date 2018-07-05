@@ -37,12 +37,10 @@ public class LeetCode114FlattenBinaryTreetoLinkedList {
 
         Stack<TreeNode> stack = new Stack<>();
         TreeNode pre = null;
-
         stack.push(root);
 
         while (!stack.isEmpty()) {
             TreeNode curr = stack.pop();
-
             if (curr.right != null) {
                 stack.push(curr.right);
             }
@@ -56,7 +54,6 @@ public class LeetCode114FlattenBinaryTreetoLinkedList {
             }
             pre = curr;
         }
-
         return;
     }
 }
