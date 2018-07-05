@@ -1,20 +1,21 @@
 /**
- * Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...],
+ * Given an array of meeting time intervals consisting of start and end times
+ * [[s1,e1],[s2,e2],...],
  * find the minimum number of conference rooms required.
  */
 package leetcode;
+
+import leetcode.util.Interval;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-import leetcode.util.Interval;
-
 public class LeetCode253MeetingRoomsII {
 
     public int minMeetingRooms(Interval[] intervals) {
 
-        if (null == intervals || intervals.length == 0) {
+        if (intervals == null || intervals.length == 0) {
             return 0;
         }
 
@@ -25,14 +26,15 @@ public class LeetCode253MeetingRoomsII {
             }
         });
 
-        PriorityQueue<Integer> endTimes = new PriorityQueue<Integer>();
+        PriorityQueue<Integer> endTimes = new PriorityQueue<>();
         endTimes.offer(intervals[0].end);
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[i].start >= endTimes.peek()) {
                 endTimes.poll();
             }
-            endTimes.add(intervals[i].end);
+            endTimes.offer(intervals[i].end);
         }
+
         return endTimes.size();
     }
 }
