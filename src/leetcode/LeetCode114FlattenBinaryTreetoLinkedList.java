@@ -1,5 +1,5 @@
 /**
- * Given a binary tree, flatten it to a linked list in-place.
+ * Given a binary tree, flatten it to a linked list.
  *
  * For example,
  * Given
@@ -41,9 +41,11 @@ public class LeetCode114FlattenBinaryTreetoLinkedList {
 
         while (!stack.isEmpty()) {
             TreeNode curr = stack.pop();
+
             if (curr.right != null) {
                 stack.push(curr.right);
             }
+
             if (curr.left != null) {
                 stack.push(curr.left);
             }
@@ -52,6 +54,7 @@ public class LeetCode114FlattenBinaryTreetoLinkedList {
                 pre.left = null;
                 pre.right = curr;
             }
+
             pre = curr;
         }
         return;
