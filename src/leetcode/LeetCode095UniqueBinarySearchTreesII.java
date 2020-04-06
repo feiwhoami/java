@@ -9,7 +9,6 @@
  *      3     2     1      1   3      2
  *     /     /       \                 \
  *    2     1         2                 3
- * Subscribe to see which companies asked this question
  */
 package leetcode;
 
@@ -21,18 +20,14 @@ import leetcode.util.TreeNode;
 public class LeetCode095UniqueBinarySearchTreesII {
 
     public List<TreeNode> generateTrees(int n) {
-
-        List<TreeNode> result = new ArrayList<>();
         if (n <= 0) {
-            return result;
+            return new ArrayList<>();
         }
 
-        result = generateTreesHelper(1, n);
-        return result;
+        return generateTreesHelper(1, n);
     }
 
     private List<TreeNode> generateTreesHelper(int start, int end) {
-
         List<TreeNode> result = new ArrayList<>();
 
         if (start > end) {
@@ -41,15 +36,12 @@ public class LeetCode095UniqueBinarySearchTreesII {
         }
 
         for (int i = start; i <= end; i++) {
-
             List<TreeNode> left = generateTreesHelper(start, i - 1);
             List<TreeNode> right = generateTreesHelper(i + 1, end);
 
             for (TreeNode l : left) {
                 for (TreeNode r : right) {
-
                     TreeNode root = new TreeNode(i);
-
                     root.left = l;
                     root.right = r;
                     result.add(root);

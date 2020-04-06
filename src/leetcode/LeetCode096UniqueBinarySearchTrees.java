@@ -19,7 +19,6 @@ import java.util.List;
 public class LeetCode096UniqueBinarySearchTrees {
 
     public int numTrees(int n) {
-
         List<Integer> list = new ArrayList<Integer>(Collections.nCopies(n + 1, 0));
 
         list.set(0, 1);
@@ -35,7 +34,6 @@ public class LeetCode096UniqueBinarySearchTrees {
     }
 
     public int numTrees2(int n) {
-
         int[] nums = new int[n + 1];
 
         nums[0] = 1;
