@@ -14,8 +14,8 @@ public class LeetCode002AddTwoNumbers {
 
         ListNode head = null;
 
-        if (null == l1 && null == l2) {
-            return head;
+        if (l1 == null && l2 == null) {
+            return null;
         }
 
         ListNode current = null;
@@ -24,7 +24,7 @@ public class LeetCode002AddTwoNumbers {
 
         int carryon = 0;
 
-        while (null != current1 || null != current2 || carryon != 0) {
+        while (current1 != null || current2 != null || carryon != 0) {
             int sum = 0;
 
             if (null != current1) {
@@ -47,10 +47,10 @@ public class LeetCode002AddTwoNumbers {
                 current = next;
             }
 
-            if (null != current1) {
+            if (current1 != null) {
                 current1 = current1.next;
             }
-            if (null != current2) {
+            if (current2 != null) {
                 current2 = current2.next;
             }
 
