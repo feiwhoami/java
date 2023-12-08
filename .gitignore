@@ -1,5 +1,6 @@
 bin/
 .idea/
+classes/
 code.iml
 src/main/Main.java
 
